@@ -9,9 +9,9 @@ from .modules import check_cart, find_id, check_id
 app = FastAPI()
 
 class Order(BaseModel):
-    Main: str
-    Drink: str
-    Dessert: str
+    Main: Optional[str] = None
+    Drink: Optional[str] = None
+    Dessert: Optional[str] = None
     Additional: Optional[bool] = False
     Spicy: Optional[int] = None
 
@@ -35,21 +35,24 @@ def get_menu():
 
 # Add To Cart
 @app.post("/cart", status_code=status.HTTP_200_OK)
-def post_cart(cart: Order):
+def post_order(order: Order):
     ID = randrange(0,99999)
-    cart_dict = cart.model_dump()
-    cache[ID] = cart_dict
-    return {"Cart Updated":f'Your Order ID: {ID}'}
+    order_dict = order.model_dump()
+    cache[ID] = order_dict
+    return {"Order Dispatched":f'Your Order ID: {ID}'}
 
 # Show Current Cart
 @app.get("/cart")
 def get_cart():
     cart = check_cart(cache)
-    return {"Cart":cart}
+    return cart
 
 # Get Latest Order
 @app.get("/cart/latest")
 def get_latest_order():
+    if len(cache) == 0:
+        response = f'Your cart is empty'
+        return {"Cart":response}
     id = list(cache.keys())[-1]
     latest = cache[id]
     return {"Order":latest}
@@ -63,9 +66,17 @@ def get_order(id: int):
 # Delete Specific Order
 @app.delete("/cart/{id}")
 def delete_order(id: int):
-    order = check_id(id, cache)
-    return order
+    response = check_id(id, cache)
+    if response == True:
+        del cache[id]
+        return {"Cart Updated":f'Your Deleted Order ID: {id}'}
+    return response
 
 @app.put("/cart/{id}")
 def update_order(id: int, order: Order):
-    order = check_id(id, cache)
+    response = check_id(id, cache)
+    if response == True:
+        order_dict = order.model_dump()
+        cache[id] = order_dict
+        return {"Order Updated":f'Your Updated Order ID: {id}'}
+    return response
