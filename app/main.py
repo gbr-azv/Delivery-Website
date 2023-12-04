@@ -23,19 +23,14 @@ while True:
     try:
         conn = psycopg2.connect(host='localhost', database='FastAPI', user='postgres', password='e3rxapap', cursor_factory=RealDictCursor)
         cursor = conn.cursor()
-        print('Database connection was succesfull')
+        print("Database connection was succesful")
         break
     except Exception as error:
-        print("Connecting to database failed ;(")
+        print("Connecting to database failed")
         time.sleep(2)
     
 # Remaining Cart's Selection
 cache = {}
-
-# Menu
-menu = {"Main":["X-Salad", "Chicken Burguer", "Double Cheese Burguer"],
-        "Drinks":["Soda", "Milk", "Orange Juice"],
-        "Desserts":["Ice Cream", "Milkshake", "Donuts"]}
 
 # Root
 @app.get("/")
@@ -45,9 +40,11 @@ def home():
 # Menu
 @app.get("/menu")
 def get_menu():
+    cursor.execute("SELECT * FROM product")
+    menu = cursor.fetchall()
     return {"Menu":menu}
 
-# Add To Cart
+# Send Request
 @app.post("/cart", status_code=status.HTTP_200_OK)
 def post_order(order: Order):
     ID = randrange(0,99999)
