@@ -22,6 +22,7 @@ nodeenv==1.8.0
 orjson==3.9.10
 platformdirs==4.0.0
 pre-commit==3.5.0
+psycopg2==2.9.9
 pydantic==2.5.2
 pydantic-extra-types==2.1.0
 pydantic-settings==2.1.0

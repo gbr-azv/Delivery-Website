@@ -3,6 +3,9 @@ from fastapi.params import Body
 from pydantic import BaseModel
 from typing import Optional
 from random import randrange
+import psycopg2
+from psycopg2.extras import RealDictCursor
+import time
 
 from .modules import check_cart, find_id, check_id
 
@@ -14,7 +17,18 @@ class Order(BaseModel):
     Dessert: Optional[str] = None
     Additional: Optional[bool] = False
     Spicy: Optional[int] = None
-
+    
+# Trying Connection With DB
+while True:
+    try:
+        conn = psycopg2.connect(host='localhost', database='FastAPI', user='postgres', password='e3rxapap', cursor_factory=RealDictCursor)
+        cursor = conn.cursor()
+        print('Database connection was succesfull')
+        break
+    except Exception as error:
+        print("Connecting to database failed ;(")
+        time.sleep(2)
+    
 # Remaining Cart's Selection
 cache = {}
 
@@ -72,6 +86,7 @@ def delete_order(id: int):
         return {"Cart Updated":f'Your Deleted Order ID: {id}'}
     return response
 
+# Update Specific Order
 @app.put("/cart/{id}")
 def update_order(id: int, order: Order):
     response = check_id(id, cache)
