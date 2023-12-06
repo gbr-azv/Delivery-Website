@@ -1,22 +1,26 @@
-from fastapi import FastAPI, status
-from fastapi.params import Body
-from pydantic import BaseModel
 from typing import Optional
 from random import randrange
-import psycopg2
-from psycopg2.extras import RealDictCursor
 import time
 
+from fastapi import FastAPI, status, Depends
+from fastapi.params import Body
+from pydantic import BaseModel
+import psycopg2
+from psycopg2.extras import RealDictCursor
+from . import models
+from .database import engine, get_db
+from sqlalchemy.orm import Session
+from sqlalchemy.orm import class_mapper
+
 from .modules import check_cart, find_id, check_id
+
+models.Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 
 class Order(BaseModel):
-    Main: Optional[str] = None
-    Drink: Optional[str] = None
-    Dessert: Optional[str] = None
-    Additional: Optional[bool] = False
-    Spicy: Optional[int] = None
+    Customer_id: int
+    Products: dict[int, int]
     
 # Trying Connection With DB
 while True:
@@ -39,18 +43,31 @@ def home():
 
 # Menu
 @app.get("/menu")
-def get_menu():
-    cursor.execute("SELECT * FROM product")
-    menu = cursor.fetchall()
+def get_menu(db: Session = Depends(get_db)):
+    menu = db.query(models.Product).all()
     return {"Menu":menu}
 
-# Send Request
-@app.post("/cart", status_code=status.HTTP_200_OK)
-def post_order(order: Order):
-    ID = randrange(0,99999)
-    order_dict = order.model_dump()
-    cache[ID] = order_dict
-    return {"Order Dispatched":f'Your Order ID: {ID}'}
+# Send Order
+@app.post("/order", status_code=status.HTTP_200_OK)
+def post_order(order: Order, db: Session = Depends(get_db)):
+    new_purchase = models.Purchase(customer_id = order.Customer_id)
+    db.add(new_purchase)
+    db.commit()
+    new_purchase = db.query(models.Purchase).get(new_purchase.purchase_id)
+
+    for product_id, quantity in order.Products.items():
+        product = db.query(models.Product).get(product_id)
+        if product:
+            new_purchase_product = models.PurchaseProduct(
+                purchase_id=new_purchase.purchase_id,
+                product_id=product_id,
+                quantity=quantity,
+                subtotal=product.price * quantity
+            )
+            db.add(new_purchase_product)
+    db.commit()
+    purchase_dict = {column.key: getattr(new_purchase, column.key) for column in class_mapper(models.Purchase).columns}
+    return {"Order Dispatched":purchase_dict}
 
 # Show Current Cart
 @app.get("/cart")
