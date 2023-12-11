@@ -1,7 +1,9 @@
 from typing import List
+#
 from fastapi import FastAPI, Response, HTTPException, APIRouter, Depends, status
 from sqlalchemy.orm import Session, class_mapper
-from .. import models, schemas
+#
+from .. import models, schemas, oauth2
 from ..database import get_db
 
 router = APIRouter(
@@ -11,7 +13,9 @@ router = APIRouter(
 
 # Post Order
 @router.post("/", response_model=schemas.OrderResponse)
-def send_order(order: schemas.OrderSend, db: Session = Depends(get_db)):
+def send_order(order: schemas.OrderSend, db: Session = Depends(get_db),
+               current_user: int = Depends(oauth2.get_current_user)):
+    
     new_purchase = models.Purchase(customer_id = order.Customer_id)
     db.add(new_purchase)
     db.commit()
@@ -36,7 +40,9 @@ def send_order(order: schemas.OrderSend, db: Session = Depends(get_db)):
 
 # Get Customer All Orders
 @router.get("/all/{id}", response_model=List[schemas.OrderResponse])
-def get_all_orders(id: int, db: Session = Depends(get_db)):
+def get_all_orders(id: int, db: Session = Depends(get_db),
+                   current_user: int = Depends(oauth2.get_current_user)):
+    
     all_purchases = (db.query(models.Purchase)
                      .filter(models.Purchase.customer_id == id).all())
     if not all_purchases:
@@ -47,7 +53,9 @@ def get_all_orders(id: int, db: Session = Depends(get_db)):
 
 # Get Specific Order
 @router.get("/{id}", response_model=List[schemas.OrderDetails])
-def get_order(id: int, db: Session = Depends(get_db)):
+def get_order(id: int, db: Session = Depends(get_db),
+              current_user: int = Depends(oauth2.get_current_user)):
+    
     purchase = (db.query(models.PurchaseProduct)
                 .filter(models.PurchaseProduct.purchase_id == id).all())
     if not purchase:
@@ -58,7 +66,9 @@ def get_order(id: int, db: Session = Depends(get_db)):
 
 # Delete Specific Order
 @router.delete("/{id}")
-def delete_order(id: int, db: Session = Depends(get_db)):
+def delete_order(id: int, db: Session = Depends(get_db),
+                 current_user: int = Depends(oauth2.get_current_user)):
+    
     purchase = db.query(models.Purchase).filter(models.Purchase.purchase_id == id)
     purchase_product = (db.query(models.PurchaseProduct)
                         .filter(models.PurchaseProduct.purchase_id == id))
@@ -73,7 +83,9 @@ def delete_order(id: int, db: Session = Depends(get_db)):
 
 # Update Specific Order
 @router.put("/{id}", response_model=schemas.OrderResponse)
-def update_order(id: int, order: schemas.OrderSend, db: Session = Depends(get_db)):
+def update_order(id: int, order: schemas.OrderSend, db: Session = Depends(get_db),
+                 current_user: int = Depends(oauth2.get_current_user)):
+    
     purchase = db.query(models.Purchase).get(id)
     if not purchase:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, 

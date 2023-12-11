@@ -1,7 +1,8 @@
-from .database import Base
 from sqlalchemy import Column, Integer, String, DECIMAL, TIMESTAMP, ForeignKey, Text
 from sqlalchemy.orm import relationship
 from sqlalchemy.sql import func
+#
+from .database import Base
 
 class Customer(Base):
     __tablename__ = 'customer'
