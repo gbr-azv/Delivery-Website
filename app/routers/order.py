@@ -97,14 +97,10 @@ def delete_order(id: int, db: Session = Depends(get_db),
     
     purchase = db.query(models.Purchase).filter(models.Purchase.purchase_id == id)
     
-    purchase_product = (db.query(models.PurchaseProduct)
-                        .filter(models.PurchaseProduct.purchase_id == id))
-    
     if purchase.first() == None:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
                             detail=f'Purchase With ID {id} Not Found')
         
-    purchase_product.delete(synchronize_session=False)
     purchase.delete(synchronize_session=False)
     db.commit()
     

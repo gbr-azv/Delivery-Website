@@ -57,18 +57,6 @@ def delete_user(id: int, db: Session = Depends(get_db),
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
                             detail=f'Customer With ID {id} Not Found')
     
-    purchases = (db.query(models.Purchase)
-                 .filter(models.Purchase.customer_id == id).all())
-        
-    for purchase in purchases:
-        (db.query(models.PurchaseProduct)
-         .filter(models.PurchaseProduct.purchase_id == purchase.purchase_id)
-         .delete(synchronize_session=False))
-
-    (db.query(models.Purchase)
-     .filter(models.Purchase.customer_id == id)
-     .delete(synchronize_session=False))
-    
     (db.query(models.Customer)
      .filter(models.Customer.customer_id == id)
      .delete(synchronize_session=False))
