@@ -5,7 +5,6 @@ from pydantic import BaseModel, EmailStr
 ############################## ORDER ##############################
 
 class OrderSend(BaseModel):
-    Customer_id: int
     Products: dict[int, int]
 
 class MenuResponse(BaseModel):
@@ -32,16 +31,32 @@ class UserCreate(BaseModel):
     password: str
     phone: str
     address: str
+    
+class UserUpdate(BaseModel):
+    name: str
+    email: EmailStr
+    phone: str
+    address: str
 
 class UserResponse(BaseModel):
     customer_id: int
     email: str
     created_at: datetime
+
+class UserDetails(BaseModel):
+    customer_id: int
+    name: str
+    email: str
+    phone: str
+    address: str
+    created_at: datetime
     
 class UserLogin(BaseModel):
     email: EmailStr
     password: str
-    
+
+############################## TOKEN ##############################
+
 class Token(BaseModel):
     access_token: str
     token_type: str
