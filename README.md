@@ -5,11 +5,11 @@
 
 ## Index
 
-- <a href="#technologies-used"> Technologies Used </a>
+- <a href="#technologies-used-🛠️"> Technologies Used </a>
 - <a href="#status"> Status </a>
 - <a href="#about"> About </a>
 - <a href="#project-features"> Project Features </a>
-- <a href="#improvements-in-development"> Improvements In Development </a>
+- <a href="#improvements-in-development-⏳"> Improvements In Development </a>
 - <a href="#demonstration"> Demonstration </a>
 - <a href="#how-to-run-the-application"> How To Run The Application </a>
 - <a href="#author-person"> Author Person </a>
