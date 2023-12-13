@@ -2,6 +2,9 @@ from datetime import datetime
 from typing import Optional
 from pydantic import BaseModel, EmailStr
 
+'''This file defines a series of models using Pydantic, which are used to validate 
+and document the data entering and leaving the FastAPI application'''
+
 ############################## ORDER ##############################
 
 class OrderSend(BaseModel):
