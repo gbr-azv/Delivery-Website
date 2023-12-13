@@ -35,12 +35,6 @@ class Purchase(Base):
 
     customer = relationship('Customer', back_populates='purchases')
     items = relationship('PurchaseProduct', back_populates='purchase')
-    
-    def __repr__(self):
-        return (f"Purchase(purchase_id={self.purchase_id}, "
-                f"customer_id={self.customer_id}, "
-                f"purchase_date={self.purchase_date}, "
-                f"status={self.status})")
 
 class PurchaseProduct(Base):
     __tablename__ = 'purchase_product'
