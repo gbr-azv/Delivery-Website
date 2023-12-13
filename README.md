@@ -5,14 +5,14 @@
 
 ## Index
 
-- <a href="#technologies"> Technologies Used </a>
+- <a href="#technologies-used"> Technologies Used </a>
 - <a href="#status"> Status </a>
 - <a href="#about"> About </a>
-- <a href="#features"> Project Features </a>
-- <a href="#improvements"> Improvements In Development </a>
+- <a href="#project-features"> Project Features </a>
+- <a href="#improvements-in-development"> Improvements In Development </a>
 - <a href="#demonstration"> Demonstration </a>
-- <a href="#application"> How To Run The Application </a>
-- <a href="#author"> Author Person </a>
+- <a href="#how-to-run-the-application"> How To Run The Application </a>
+- <a href="#author-person"> Author Person </a>
 
 ## Status
 
