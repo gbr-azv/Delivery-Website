@@ -1,5 +1,5 @@
 <h1 align="center">
-<img src="./src/assets/api_logo.png"/>
+<img src="./docs/assets/api_logo.png"/>
 <p>TALENTX FINAL PROJECT</p>
 </h1>
 
@@ -45,15 +45,15 @@
 ## Demonstration
 
 ### Request Homepage
-![Homepage](./src/assets/api_homepage.png)
+![Homepage](./docs/assets/api_homepage.png)
 ### Request Menu
-![Menu](./src/assets/api_menu.png)
+![Menu](./docs/assets/api_menu.png)
 ### Log Into
-![Login](./src/assets/api_login.png)
+![Login](./docs/assets/api_login.png)
 ### Request User Data
-![User Data](./src/assets/api_user_data.png)
+![User Data](./docs/assets/api_user_data.png)
 ### Request Order Data
-![Order Data](./src/assets/api_order.png)
+![Order Data](./docs/assets/api_order.png)
 
 ## Technologies Used
 
@@ -74,21 +74,20 @@
 
 ## How To Run The Application
 
-<p align="center">1. Open Docker Desktop</p>
-
-<p align="center">2.</p>
+```bash
+# Pull
+$ git pull 
+```
 
 ```bash
 # Enter Project Directory
 $ cd FastAPI
 ```
-<p align="center">3.</p>
 
 ```bash
 # Build Dockerfile Image
 $ docker build -t .
 ```
-<p align="center">4.</p>
 
 ```bash
 # Run Docker-Compose.yml
@@ -97,4 +96,4 @@ $ docker-compose up
 
 ## Author Person
 
-![Author](./src/assets/api_author.png)
+<img style="width:450px" src="./docs/assets/api_author.png"/>
