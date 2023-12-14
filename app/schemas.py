@@ -55,7 +55,7 @@ class UserDetails(BaseModel):
     created_at: datetime
     
 class UserLogin(BaseModel):
-    email: EmailStr
+    email: EmailStr # Checks if it is really an email
     password: str
 
 ############################## TOKEN ##############################

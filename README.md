@@ -75,18 +75,13 @@
 ## How To Run The Application
 
 ```bash
-# Pull
-$ git pull 
+# Clone The Project
+$ git clone https://github.com/gbr-azv/My_First_API.git
 ```
 
 ```bash
 # Enter Project Directory
-$ cd FastAPI
-```
-
-```bash
-# Build Dockerfile Image
-$ docker build -t .
+$ cd My_First_API
 ```
 
 ```bash
