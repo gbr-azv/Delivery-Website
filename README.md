@@ -76,12 +76,12 @@
 
 ```bash
 # Clone The Project
-$ git clone https://github.com/gbr-azv/My_First_API.git
+$ git clone https://github.com/gbr-azv/TalentX-FinalProject.git
 ```
 
 ```bash
 # Enter Project Directory
-$ cd My_First_API
+$ cd TalentX-FinalProject
 ```
 
 ```bash
