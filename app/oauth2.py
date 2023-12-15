@@ -7,15 +7,16 @@ from sqlalchemy.orm import Session
 #
 from . import schemas, models
 from .database import get_db
+from .config import settings
 
 # Defines an OAuth2 scheme for authentication with passwords 
 # Specifies the endpoint for obtaining the token, which is '/login'
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl='login')
 
 # Constants used to create and verify JWT tokens
-SECRET_KEY = "09d25e094faa6ca2556c818166b7a9563b93f7099f6f0f4caa6cf63b88e8d3e7"
-ALGORITHM = "HS256"
-ACCESS_TOKEN_EXPIRE_MINUTES = 30
+SECRET_KEY = settings.SECRET_KEY
+ALGORITHM = settings.ALGORITHM
+ACCESS_TOKEN_EXPIRE_MINUTES = settings.ACCESS_TOKEN_EXPIRE_MINUTES
 
 # Creates a JWT token based on the given data
 def create_access_token(data: dict):

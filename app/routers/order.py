@@ -1,6 +1,7 @@
-from typing import List
+from typing import List, Optional
 #
 from fastapi import FastAPI, Response, HTTPException, APIRouter, Depends, status
+from sqlalchemy import or_
 from sqlalchemy.orm import Session, class_mapper
 #
 from .. import models, schemas, oauth2
@@ -54,7 +55,8 @@ def send_order(order: schemas.OrderSend, db: Session = Depends(get_db),
 # [GET] Requests Customer Order History (BY USER ID)
 @router.get("/all/{id}", response_model=List[schemas.OrderResponse])
 def get_all_orders(id: int, db: Session = Depends(get_db),
-                   current_user: int = Depends(oauth2.get_current_user)):
+                   current_user: int = Depends(oauth2.get_current_user),
+                   limit: int = 5, skip: int = 0, search: Optional[str]=""):
 
     # Checks if the ID of the current authenticated user is different 
     # from the ID provided in the request
@@ -62,9 +64,20 @@ def get_all_orders(id: int, db: Session = Depends(get_db),
         raise HTTPException(status_code=status.HTTP_403_FORBIDDEN,
                             detail=f'Unauthorized')
         
-    # Queries the database to get the user with the given ID
-    all_purchases = (db.query(models.Purchase)
-                     .filter(models.Purchase.customer_id == id).all())
+    # Queries the database to get the user with the given ID and parameters
+    all_purchases = (
+        db.query(models.Purchase)
+        .join(models.Purchase.items)
+        .join(models.PurchaseProduct.product)
+        .filter(models.Purchase.customer_id == id)
+        .filter(or_(
+            models.Product.name.ilike(f"%{search}%"),
+            models.Product.description.ilike(f"%{search}%"),
+        ))
+        .limit(limit)
+        .offset(skip)
+        .all()
+    )
     
     # Not found, raises HTTP exception with status 404 (Not Found)
     if not all_purchases:

@@ -1,9 +1,11 @@
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
+#
+from .config import settings
 
 # Sets the connection URL to the PostgreSQL database
-SQLALCHEMY_DATABASE_URL = 'postgresql://postgres:e3rxapap@postgres:5432/FastAPI'
+SQLALCHEMY_DATABASE_URL = settings.SQLALCHEMY_DATABASE_URL
 
 # Creates an instance of SQLAlchemy create_engine, which represents the database connection
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
