@@ -26,80 +26,43 @@ def create_user(user: schemas.UserCreate, db: Session = Depends(get_db)):
     
     return new_user
 
-# [GET] Get Personal Data From User's Own Account (BY USER ID)
-@router.get("/{id}", response_model=schemas.UserDetails)
-def get_user(id: int, db: Session = Depends(get_db),
+# [GET] Get Personal Data From User's Own Account
+@router.get("/", response_model=schemas.UserDetails)
+def get_user(db: Session = Depends(get_db),
              current_user: int = Depends(oauth2.get_current_user)):
     
-    # Checks if the ID of the current authenticated user is different 
-    # from the ID provided in the request
-    if current_user.customer_id != id:
-        raise HTTPException(status_code=status.HTTP_403_FORBIDDEN,
-                            detail=f'Unauthorized')
-    
     # Queries the database to get the user with the given ID
-    user = db.query(models.Customer).filter(models.Customer.customer_id == id).first()
-    
-    # Not found, raises HTTP exception with status 404 (Not Found)
-    if not user:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, 
-                            detail=f'Customer With ID {id} Not Found')
+    user = db.query(models.Customer).filter(models.Customer.customer_id == current_user.customer_id).first()
     
     return user
 
-# [DELETE] Delete Own Account (BY USER ID)
-@router.delete("/{id}")
-def delete_user(id: int, db: Session = Depends(get_db),
+# [DELETE] Delete Own Account
+@router.delete("/", status_code=status.HTTP_204_NO_CONTENT)
+def delete_user(db: Session = Depends(get_db),
                 current_user: int = Depends(oauth2.get_current_user)):
-    
-    # Checks if the ID of the current authenticated user is different 
-    # from the ID provided in the request
-    if current_user.customer_id != id:
-        raise HTTPException(status_code=status.HTTP_403_FORBIDDEN,
-                            detail=f'Unauthorized')
-    
-    # Queries the database to get the user with the given ID
-    user = (db.query(models.Customer)
-            .filter(models.Customer.customer_id == id))
-    
-    # Not found, raises HTTP exception with status 404 (Not Found)
-    if user.first() == None:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
-                            detail=f'Customer With ID {id} Not Found')
     
     # Deletes the user from the database based on the provided ID (On Delete Cascade)
     # Synchronize_session=False: used to avoid problems with session synchronization
     (db.query(models.Customer)
-     .filter(models.Customer.customer_id == id)
+     .filter(models.Customer.customer_id == current_user.customer_id)
      .delete(synchronize_session=False))
     
     # Commits the transaction to the database, making the deletion permanent
     db.commit()
     
-    return {"Success":f'Customer With ID {id} Deleted'}
+    return Response(status_code=status.HTTP_204_NO_CONTENT)
 
-# [UPDATE] Update Personal Data From The User's Own Account (BY USER ID)
-@router.put("/{id}", response_model=schemas.UserResponse)
-def update_user(id: int, updated_user: schemas.UserUpdate, db: Session = Depends(get_db),
+# [UPDATE] Update Personal Data From The User's Own Account
+@router.put("/", response_model=schemas.UserResponse)
+def update_user(updated_user: schemas.UserUpdate, db: Session = Depends(get_db),
                  current_user: int = Depends(oauth2.get_current_user)):
-    
-    # Checks if the ID of the current authenticated user is different 
-    # from the ID provided in the request
-    if current_user.customer_id != id:
-        raise HTTPException(status_code=status.HTTP_403_FORBIDDEN,
-                            detail=f'Unauthorized')
     
     # Queries the database to get the user with the given ID
     user_query = (db.query(models.Customer)
-                  .filter(models.Customer.customer_id == id))
+                  .filter(models.Customer.customer_id == current_user.customer_id))
     
     # Gets the query user
     user = user_query.first()
-    
-    # Not found, raises HTTP exception with status 404 (Not Found)
-    if user == None:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, 
-                            detail=f'User With ID {id} Not Found')
         
     # Updates the user from the database based on the provided ID
     # Synchronize_session=False: used to avoid problems with session synchronization

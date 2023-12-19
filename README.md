@@ -75,17 +75,13 @@
 ## How To Run The Application
 
 ```bash
-# Clone The Project
-$ git clone https://github.com/gbr-azv/TalentX-FinalProject.git
+# Install pre-commit tool 
+'''This will allow you to insert new requirements into the requirements.txt file throughout the project, in an automated way'''
+$ pre-commit install
 ```
 
 ```bash
-# Enter Project Directory
-$ cd TalentX-FinalProject
-```
-
-```bash
-# Run Docker-Compose.yml
+# Start application containers
 $ docker-compose up
 ```
 

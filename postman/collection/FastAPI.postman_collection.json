@@ -10,7 +10,7 @@
 			"name": "Order",
 			"item": [
 				{
-					"name": "Get Root",
+					"name": "Get Home Page",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -24,7 +24,7 @@
 					"response": []
 				},
 				{
-					"name": "Get Menu",
+					"name": "Get Restaurant Menu",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -38,7 +38,7 @@
 					"response": []
 				},
 				{
-					"name": "Get Order",
+					"name": "Get Specific Order",
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -80,13 +80,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{URL}}order/all/{customer_id}",
+							"raw": "{{URL}}order/all{you can use: skip/limit/search}",
 							"host": [
 								"{{URL}}order"
 							],
 							"path": [
-								"all",
-								"{customer_id}"
+								"all{you can use: skip",
+								"limit",
+								"search}"
 							]
 						}
 					},
@@ -242,12 +243,9 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{URL}}user/{customer_id}",
+							"raw": "{{URL}}user",
 							"host": [
 								"{{URL}}user"
-							],
-							"path": [
-								"{customer_id}"
 							]
 						}
 					},
@@ -278,12 +276,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{URL}}user/{customer_id}",
+							"raw": "{{URL}}user",
 							"host": [
 								"{{URL}}user"
-							],
-							"path": [
-								"{customer_id}"
 							]
 						}
 					},
@@ -305,12 +300,9 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{URL}}user/{customer_id}",
+							"raw": "{{URL}}user",
 							"host": [
 								"{{URL}}user"
-							],
-							"path": [
-								"{customer_id}"
 							]
 						}
 					},

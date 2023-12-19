@@ -1,5 +1,5 @@
 from datetime import datetime
-from typing import Optional
+from typing import Optional, List
 from pydantic import BaseModel, EmailStr
 
 '''This file defines a series of models using Pydantic, which are used to validate 
@@ -16,15 +16,16 @@ class MenuResponse(BaseModel):
     price: float
     product_id: int
 
+class OrderDetails(BaseModel):
+    name: str
+    quantity: int
+    subtotal: float
+    
 class OrderResponse(BaseModel):
     purchase_id: int
     purchase_date: datetime
     status: str
-
-class OrderDetails(BaseModel):
-    product_id: int
-    quantity: int
-    subtotal: float
+    items: List[OrderDetails]
     
 ############################## USER ##############################
     
