@@ -44,8 +44,6 @@
 
 ## Demonstration
 
-### Request Homepage
-![Homepage](./docs/assets/api_homepage.png)
 ### Request Menu
 ![Menu](./docs/assets/api_menu.png)
 ### Log Into
@@ -53,7 +51,7 @@
 ### Request User Data
 ![User Data](./docs/assets/api_user_data.png)
 ### Request Order Data
-![Order Data](./docs/assets/api_order.png)
+![Order Data](./docs/assets/api_order_data.png)
 
 ## Technologies Used
 
