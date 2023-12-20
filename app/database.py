@@ -10,7 +10,7 @@ SQLALCHEMY_DATABASE_URL = settings.SQLALCHEMY_DATABASE_URL
 # Creates an instance of SQLAlchemy create_engine, which represents the database connection
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
 
-# Create a sessionmaker class
+# Creates a sessionmaker class
 # This class is used to create instances of database sessions
 # Autocommit=False: transactions are not automatically committed after each database operation
 # Autoflush=False: the session is not automatically flushed before each query (better control over syncs)

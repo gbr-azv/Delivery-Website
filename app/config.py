@@ -1,3 +1,7 @@
+'''This file is intended to store values of the app's environment variables'''
+'''From the Settings class, which automatically loads the environment variables defined in the class
+from the ".env file" (as configured in the Config class).'''
+
 from pydantic_settings import BaseSettings
 
 class Settings(BaseSettings):
