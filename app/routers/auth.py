@@ -30,6 +30,6 @@ def login(user_credentials: OAuth2PasswordRequestForm = Depends(),db: Session = 
     # Creates an access token using the create_access_token function defined in the oauth2 object.
     # This access token is based on the data provided
     # Which in this case include the customer ID (user.customer_id)
-    access_token = oauth2.create_access_token(data={"customer_id":user.customer_id})
+    access_token = oauth2.create_access_token(data={"customer_id":str(user.customer_id)})
     
     return {"access_token" : access_token, "token_type":"bearer"}

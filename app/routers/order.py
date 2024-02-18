@@ -120,7 +120,7 @@ def get_all_orders(db: Session = Depends(get_db),
 
 # [GET] Requests Details of a Specific Customer Order (BY ORDER ID)
 @router.get("/{id}", response_model=schemas.OrderResponse)
-def get_order(id: int, db: Session = Depends(get_db),
+def get_order(id: str, db: Session = Depends(get_db),
               current_user: int = Depends(oauth2.get_current_user)):
 
     # Queries the database to get the order details with the given ID
@@ -171,7 +171,7 @@ def get_order(id: int, db: Session = Depends(get_db),
 
 # [DELETE] Deletes An Order and Its Related Details - On Delete Cascade (BY ORDER ID)
 @router.delete("/{id}", status_code=status.HTTP_204_NO_CONTENT)
-def delete_order(id: int, db: Session = Depends(get_db),
+def delete_order(id: str, db: Session = Depends(get_db),
                  current_user: int = Depends(oauth2.get_current_user)):
     
     # Queries the database to get the user with the given ID
@@ -206,7 +206,7 @@ def delete_order(id: int, db: Session = Depends(get_db),
 
 # [UPDATE] Updates An Order and Its Related Details (BY ORDER ID)
 @router.put("/{id}", response_model=schemas.OrderResponse)
-def update_order(id: int, order: schemas.OrderSend, db: Session = Depends(get_db),
+def update_order(id: str, order: schemas.OrderSend, db: Session = Depends(get_db),
                  current_user: int = Depends(oauth2.get_current_user)):
     
     # Queries the database to get the user with the given ID

@@ -31,7 +31,7 @@ class Product(Base):
 
     __tablename__ = 'product'
 
-    product_id = Column(UUID(as_uuid=True), primary_key=True, nullable=False, default=uuid4)
+    product_id = Column(Integer, primary_key=True, autoincrement=True)
     name = Column(String(100), nullable=False)
     description = Column(Text, nullable=False)
     price = Column(DECIMAL(10, 2), nullable=False)
@@ -40,7 +40,7 @@ class Purchase(Base):
     __tablename__ = 'purchase'
 
     purchase_id = Column(UUID(as_uuid=True), primary_key=True, nullable=False, default=uuid4)
-    customer_id = Column(Integer, ForeignKey('customer.customer_id', ondelete="CASCADE"), nullable=False)
+    customer_id = Column(UUID(as_uuid=True), ForeignKey('customer.customer_id', ondelete="CASCADE"), nullable=False)
     purchase_date = Column(TIMESTAMP, server_default=func.now())
     status = Column(String(20), server_default='Received')
 
@@ -56,7 +56,7 @@ class PurchaseProduct(Base):
     __tablename__ = 'purchase_product'
 
     item_id = Column(UUID(as_uuid=True), primary_key=True, nullable=False, default=uuid4)
-    purchase_id = Column(Integer, ForeignKey('purchase.purchase_id', ondelete="CASCADE"), nullable=False)
+    purchase_id = Column(UUID(as_uuid=True), ForeignKey('purchase.purchase_id', ondelete="CASCADE"), nullable=False)
     product_id = Column(Integer, ForeignKey('product.product_id', ondelete="CASCADE"), nullable=False)
     quantity = Column(Integer, nullable=False)
     subtotal = Column(DECIMAL(10, 2), nullable=False)
