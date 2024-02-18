@@ -5,10 +5,10 @@ from sqlalchemy.orm import sessionmaker
 from .config import settings
 
 # Sets the connection URL to the PostgreSQL database
-SQLALCHEMY_DATABASE_URL = settings.SQLALCHEMY_DATABASE_URL
+SQLALCHEMY_DATABASE_URLL = settings.SQLALCHEMY_DATABASE_URLL
 
 # Creates an instance of SQLAlchemy create_engine, which represents the database connection
-engine = create_engine(SQLALCHEMY_DATABASE_URL)
+engine = create_engine(SQLALCHEMY_DATABASE_URLL)
 
 # Creates a sessionmaker class
 # This class is used to create instances of database sessions

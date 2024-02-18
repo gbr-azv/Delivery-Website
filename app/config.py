@@ -5,7 +5,7 @@ from the ".env file" (as configured in the Config class).'''
 from pydantic_settings import BaseSettings
 
 class Settings(BaseSettings):
-    SQLALCHEMY_DATABASE_URL: str
+    SQLALCHEMY_DATABASE_URLL: str
     DATABASE_HOSTNAME: str
     DATABASE_PORT: str 
     DATABASE_PASSWORD: str 
