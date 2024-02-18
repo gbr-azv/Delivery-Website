@@ -1,6 +1,7 @@
 <h1 align="center">
 <img src="./docs/assets/api_logo.png"/>
-<p>TALENTX FINAL PROJECT</p>
+<a href="https://talentx.com.br/">TALENTX</a>
+<p>FINAL PROJECT</p>
 </h1>
 
 ## Index
@@ -71,12 +72,6 @@
 </table>
 
 ## How To Run The Application
-
-```bash
-# Install pre-commit tool 
-'''This will allow you to insert new requirements into the requirements.txt file throughout the project, in an automated way'''
-$ pre-commit install
-```
 
 ```bash
 # Start application containers
