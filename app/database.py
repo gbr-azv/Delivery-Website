@@ -5,7 +5,8 @@ from sqlalchemy.orm import sessionmaker
 from .config import settings
 
 # Sets the connection URL to the PostgreSQL database
-SQLALCHEMY_DATABASE_URLL = settings.SQLALCHEMY_DATABASE_URLL
+SQLALCHEMY_DATABASE_URLL = (f'postgresql+psycopg2://{settings.DB_USERNAME}:{settings.DB_PASSWORD}'
+                            f'@{settings.DB_HOSTNAME}:{settings.DB_PORT}/{settings.DB_NAME}')
 
 # Creates an instance of SQLAlchemy create_engine, which represents the database connection
 engine = create_engine(SQLALCHEMY_DATABASE_URLL)
