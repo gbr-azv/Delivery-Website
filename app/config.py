@@ -16,6 +16,9 @@ class Settings(BaseSettings):
     PRIVATE_KEY: str
     PUBLIC_KEY: str
     CLIENT_ORIGIN: str
+    SECRET_KEY: str
+    ALGORITHM: str 
+    ACCESS_TOKEN_EXPIRE_MINUTES: int 
      
     class Config:
         env_file = ".env"
