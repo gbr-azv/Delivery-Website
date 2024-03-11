@@ -10,22 +10,22 @@ services:
       - ./:/usr/src/app:ro
     command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
     environment:
-      - DATABASE_HOSTNAME=
-      - DATABASE_PORT=
-      - DATABASE_PASSWORD=
-      - DATABASE_NAME=
-      - DATABASE_USERNAME=
-      - SECRET_KEY=
-      - ALGORITHM=
-      - ACCESS_TOKEN_EXPIRE_MINUTES=
+      - DATABASE_HOSTNAME=${DB_HOSTNAME}
+      - DATABASE_PORT=${DB_PORT}
+      - DATABASE_PASSWORD=${DB_PASSWORD}
+      - DATABASE_NAME=${DB_NAME}
+      - DATABASE_USERNAME=${DB_USERNAME}
+      - SECRET_KEY=${SECRET_KEY}
+      - ALGORITHM=${ALGORITHM}
+      - ACCESS_TOKEN_EXPIRE_MINUTES=${ACCESS_TOKEN_EXPIRE_MINUTES}
 
   postgres:
     image: postgres
     ports:
       - 5432:5432
     environment:
-      - POSTGRES_PASSWORD=
-      - POSTGRES_DB=
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=${DB_NAME}
 
     volumes:
       - postgres-db:/var/lib/postgresql/data
