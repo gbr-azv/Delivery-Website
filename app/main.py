@@ -1,6 +1,7 @@
 from typing import List
 #
 from fastapi import FastAPI, Depends
+from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
 #
 from . import models, schemas
@@ -16,6 +17,23 @@ insert_initial_data()
 
 # Creates an instance of the FastAPI application
 app = FastAPI()
+
+# Defines a list of origins allowed
+origins = [
+    "http://localhost",
+    "https://localhost",
+    "http://localhost:8000",
+    "https://localhost:8000",
+]
+
+# Implement CORS in the application
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 ############################## ROUTES ##############################
 

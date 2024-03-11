@@ -5,12 +5,17 @@ from the ".env file" (as configured in the Config class).'''
 from pydantic_settings import BaseSettings
 
 class Settings(BaseSettings):
-    SQLALCHEMY_DATABASE_URL: str
-    DATABASE_HOSTNAME: str
-    DATABASE_PORT: str 
-    DATABASE_PASSWORD: str 
-    DATABASE_NAME: str
-    DATABASE_USERNAME: str 
+    DB_HOSTNAME: str
+    DB_PORT: str 
+    DB_PASSWORD: str 
+    DB_NAME: str
+    DB_USERNAME: str 
+    JWT_ALGORITHM: str 
+    ACCESS_TOKEN_EXPIRES_MINUTES: int
+    REFRESH_TOKEN_EXPIRES_MINUTES: int
+    PRIVATE_KEY: str
+    PUBLIC_KEY: str
+    CLIENT_ORIGIN: str
     SECRET_KEY: str
     ALGORITHM: str 
     ACCESS_TOKEN_EXPIRE_MINUTES: int 

@@ -10,22 +10,6 @@ router = APIRouter(
     tags=['User']
 )
 
-# [POST] Creates User
-@router.post("/", status_code=status.HTTP_201_CREATED, response_model=schemas.UserResponse)
-def create_user(user: schemas.UserCreate, db: Session = Depends(get_db)):
-    
-    # Password Hash
-    hashed_password = utils.hash(user.password)
-    user.password = hashed_password
-
-    # Creates new instance, unpacks values and commits
-    new_user = models.Customer(**user.model_dump())
-    db.add(new_user)
-    db.commit()
-    db.refresh(new_user)
-    
-    return new_user
-
 # [GET] Gets Personal Data From User's Own Account
 @router.get("/", response_model=schemas.UserDetails)
 def get_user(db: Session = Depends(get_db),

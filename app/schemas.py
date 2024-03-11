@@ -1,3 +1,4 @@
+from uuid import UUID
 from datetime import datetime
 from typing import Optional, List
 from pydantic import BaseModel, EmailStr
@@ -22,7 +23,7 @@ class OrderDetails(BaseModel):
     subtotal: float
     
 class OrderResponse(BaseModel):
-    purchase_id: int
+    purchase_id: UUID
     purchase_date: datetime
     status: str
     items: List[OrderDetails]
@@ -43,12 +44,12 @@ class UserUpdate(BaseModel):
     address: str
 
 class UserResponse(BaseModel):
-    customer_id: int
+    customer_id: UUID
     email: str
     created_at: datetime
 
 class UserDetails(BaseModel):
-    customer_id: int
+    customer_id: UUID
     name: str
     email: str
     phone: str
@@ -66,4 +67,4 @@ class Token(BaseModel):
     token_type: str
 
 class TokenData(BaseModel):
-    id: Optional[int] = None
+    id: Optional[str] = None
