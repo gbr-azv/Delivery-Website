@@ -1,5 +1,5 @@
 <h1 align="center">
-<img src="./docs/assets/api_logo.png"/>
+<img src="./backend/docs/assets/api_logo.png"/>
 <a href="https://talentx.com.br/">TALENTX</a>
 <p>FINAL PROJECT</p>
 </h1>
@@ -46,13 +46,13 @@
 ## Demonstration
 
 ### Request Menu
-![Menu](./docs/assets/api_menu.png)
+![Menu](./backend/docs/assets/api_menu.png)
 ### Log Into
-![Login](./docs/assets/api_login.png)
+![Login](./backend/docs/assets/api_login.png)
 ### Request User Data
-![User Data](./docs/assets/api_user_data.png)
+![User Data](./backend/docs/assets/api_user_data.png)
 ### Request Order Data
-![Order Data](./docs/assets/api_order_data.png)
+![Order Data](./backend/docs/assets/api_order_data.png)
 
 ## Technologies Used
 
@@ -80,4 +80,4 @@ $ docker-compose up
 
 ## Author Person
 
-<img style="width:450px" src="./docs/assets/api_author.png"/>
+<img style="width:450px" src="./backend/docs/assets/api_author.png"/>
