@@ -1,16 +1,14 @@
 version: "3"
 services:
   api:
-    build: ./backend
+    build: .
     depends_on:
       - postgres
     ports:
       - 8000:8000
     volumes:
-      - ./backend:/usr/src/app:ro
+      - .:/usr/src/app:ro
     command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
-    env_file:
-      - backend/.env
     environment:
       - DATABASE_HOSTNAME=${DB_HOSTNAME}
       - DATABASE_PORT=${DB_PORT}
