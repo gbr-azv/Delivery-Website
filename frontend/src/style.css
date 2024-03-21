@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Voces&display=swap&family=Rambla:ital,wght@0,400;0,700;1,400;1,700&family=Voces&display=swap');
+
+body {
+    background-color: #000000;
+    color: #ffffff;
+    height: 100vh;
+    box-sizing: border-box;
+}
+
+strong {
+    color: #E72929;
+}
+
+.main-container {
+    margin: 10% 15%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.main-container__links {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.main-container__links__buttons {
+    background-color: #ffffff;
+    color: #E72929;
+    width: 280px;
+    text-align: center;
+    border-radius: 16px;
+    font-size: 20px;
+    font-family: "Rambla", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    padding: 21.5px 0;
+}
+
+.main-container__section {
+    width: 615px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.main-container__section__title {
+    font-size: 36px;
+    font-family: "Voces", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+.main-container__section__title_p {
+    font-size: 24px;
+    font-family: "Rambla", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}

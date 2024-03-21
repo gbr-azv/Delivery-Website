@@ -1,0 +1,61 @@
+/* Reset CSS */
+
+/* Box sizing border-box for all elements */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* Remove default margin */
+body, h1, h2, h3, h4, h5, h6, p, ul, ol, dl, figure, blockquote, fieldset, legend {
+    margin: 0;
+}
+
+/* Remove default padding */
+h1, h2, h3, h4, h5, h6, p, ul, ol, dl, figure, blockquote, fieldset, legend {
+    padding: 0;
+}
+
+/* Remove list styles on ul, ol elements */
+ul, ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Remove background and border on img */
+img {
+    border-style: none;
+    vertical-align: middle;
+}
+
+/* Remove outline on focused elements */
+button:focus, input:focus, textarea:focus, select:focus {
+    outline: 0;
+}
+
+/* Remove default styles for anchor links */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Set default font family and size */
+body {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* Optional: Set base styles for commonly used elements */
+body {
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: bold;
+}
+
+p {
+    margin-bottom: 1em;
+}
