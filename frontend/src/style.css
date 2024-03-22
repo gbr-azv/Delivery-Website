@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Voces&display=swap&family=Rambla:ital,wght@0,400;0,700;1,400;1,700&family=Voces&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Voces&display=swap&family=Rambla:ital,wght@0,400;0,700;1,400;1,700&family=Voces&display=swap&family=Bungee+Spice&family=Rambla:ital,wght@0,400;0,700;1,400;1,700&family=Voces&display=swap');
 
 body {
-    background-color: #000000;
+    background-color: #31363F;
     color: #ffffff;
     height: 100vh;
     box-sizing: border-box;
@@ -9,6 +9,35 @@ body {
 
 strong {
     color: #E72929;
+}
+
+.topnavbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #31363F;
+}
+
+.topnavbar img {
+    width: 150px;
+}
+
+.topnavbar a {
+    color: #f95959;
+    padding: 12px 20px;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 18px;
+    transition: color 0.3s ease;
+    font-family: "Bungee Spice", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.topnavbar a:hover {
+    background-color: #637A9F;
+    border-radius: 15px;
 }
 
 .main-container {
@@ -21,7 +50,6 @@ strong {
 .main-container__links {
     display: flex;
     justify-content: space-between;
-
 }
 
 .main-container__links__buttons {
