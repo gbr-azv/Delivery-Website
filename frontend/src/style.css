@@ -3,7 +3,6 @@
 body {
     background-color: #EEEEEE;
     color: #ffffff;
-    height: 100vh;
     box-sizing: border-box;
 }
 
@@ -13,17 +12,18 @@ strong {
 
 .topnavbar {
     display: flex;
+    padding-left: 10%;
+    padding-right: 10%;
     align-items: center;
+    justify-content: space-between;
     background-color: #EEEEEE;
-    padding: 1% 2%;
-    gap: 23.5%;
+    gap: 25%;
 }
 
 .navbar-logo {
     display: flex;
-    margin-left: 6%;
+    justify-content: center;
     width: 10%;
-    max-width: 100%;
     height: auto;
 }
 
@@ -50,7 +50,7 @@ strong {
     display: block;
     width: 0;
     height: 10%;
-    background-color: orange;
+    background-color: #FB6D48;
     position: absolute;
     bottom: -25%;
     left: 0;
@@ -64,7 +64,7 @@ strong {
 
 .nav-icons {
     display: flex;
-    margin-right: 14%;
+    margin: auto;
     font-size: 125%;
     gap: 40%;
 }
@@ -82,7 +82,7 @@ strong {
     display: block;
     width: 0;
     height: 10%;
-    background-color: orange;
+    background-color: #FB6D48;
     position: absolute;
     bottom: -25%;
     left: 0;
@@ -95,7 +95,8 @@ strong {
 }
 
 .main-container {
-    margin: 10% 15%;
+    height: 630px;
+    padding: 5% 10%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -116,11 +117,11 @@ strong {
     font-family: "Rambla", sans-serif;
     font-weight: 400;
     font-style: normal;
-    padding: 3% 0;
+    padding: 3%;
 }
 
 .main-container__section {
-    width: 3843.75%;
+    width: 600px;
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -135,6 +136,16 @@ strong {
 
 .main-container__section__title_p {
     font-size: 150%;
+    font-family: "Rambla", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.footer-container {
+    text-align: center;
+    padding: 2%;
+    color: #FB6D48;
+    font-size: 120%;
     font-family: "Rambla", sans-serif;
     font-weight: 400;
     font-style: normal;
