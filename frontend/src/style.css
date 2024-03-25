@@ -11,87 +11,87 @@ strong {
     color: #E72929;
 }
 
-/* General styling for the navbar */
 .topnavbar {
     display: flex;
     align-items: center;
-    background-color: #EEEEEE; /* Adjust the background color as needed */
-    padding: 10px 20px;
+    background-color: #EEEEEE;
+    padding: 1% 2%;
 }
 
 .navbar-logo {
-    margin-left: 100px;
-    margin-right: 250px; /* Pushes the logo to the left and other items to the right */
-    width: 160px; /* Adjust width as needed */
+    display: flex;
+    margin-left: 10%;
+    margin-right: 15%;
+    width: 10%;
+    max-width: 100%;
+    height: auto;
 }
 
-/* Styling for navigation links */
 .nav-links {
     display: flex;
-    margin-right: auto; /* This will ensure the icons are pushed to the right */
+    margin-right: auto;
+    gap: 15%;
 }
 
 .nav-link {
-    color: #000000; /* Replace with the actual text color */
+    color: #000000;
     text-decoration: none;
     position: relative;
     display: inline-block;
-    padding-bottom: 2px;
-    margin-right: 40px; /* Adjust the space between links */
+    padding-bottom: 0.5%;
     font-family: "Mukta", sans-serif;
     font-weight: 400;
     font-style: normal;
-    font-size: 20px;/* Needed for the underline effect */
+    font-size: 125%;
 }
 
 .nav-link::after {
     content: '';
     display: block;
-    width: 0; /* Starts with no underline */
-    height: 2px;
-    background-color: orange; /* Replace with the actual color of the underline */
+    width: 0;
+    height: 10%;
+    background-color: orange;
     position: absolute;
-    bottom: -4px;
-    left: 0; /* Start from the left */
+    bottom: -25%;
+    left: 0;
     transition: width 0.3s ease; 
 }
 
 .nav-link:hover::after {
-    width: 100%; /* Underline expands to full width on hover */
-    left: 0; /* Keep aligned to the left */
+    width: 100%;
+    left: 0;
 }
 
-/* Styling for the icon links */
 .nav-icons {
     display: flex;
     margin-right: auto;
-    font-size: 20px;
+    font-size: 125%;
 }
 
 .nav-item {
-    color: #000000; /* Replace with the actual text color */
+    color: #000000;
     text-decoration: none;
     position: relative;
     display: inline-block;
-    padding-bottom: 2px;
+    padding-bottom: 1.5%;
     margin-right: 30px;
 }
 
 .nav-item::after {
     content: '';
     display: block;
-    width: 0; /* Starts with no underline */
-    height: 2px;
-    background-color: orange; /* Replace with the actual color of the underline */
+    width: 0;
+    height: 10%;
+    background-color: orange;
     position: absolute;
-    bottom: -4px;
-    left: 0; /* Start from the left */
+    bottom: -25%;
+    left: 0;
     transition: width 0.3s ease; 
 }
 
 .nav-item:hover::after {
-    width: 100%; /* Underline expands to full width on hover */
-    left: 0; /* Keep aligned to the left */
+    width: 100%;
+    left: 0;
 }
 
 .main-container {
@@ -112,29 +112,29 @@ strong {
     width: 280px;
     text-align: center;
     border-radius: 16px;
-    font-size: 20px;
+    font-size: 125%;
     font-family: "Rambla", sans-serif;
     font-weight: 400;
     font-style: normal;
-    padding: 21.5px 0;
+    padding: 3% 0;
 }
 
 .main-container__section {
-    width: 615px;
+    width: 3843.75%;
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
 
 .main-container__section__title {
-    font-size: 36px;
+    font-size: 225%;
     font-family: "Voces", sans-serif;
     font-weight: 400;
     font-style: normal;
 }
 
 .main-container__section__title_p {
-    font-size: 24px;
+    font-size: 150%;
     font-family: "Rambla", sans-serif;
     font-weight: 400;
     font-style: normal;
