@@ -16,12 +16,12 @@ strong {
     align-items: center;
     background-color: #EEEEEE;
     padding: 1% 2%;
+    gap: 23.5%;
 }
 
 .navbar-logo {
     display: flex;
-    margin-left: 10%;
-    margin-right: 15%;
+    margin-left: 6%;
     width: 10%;
     max-width: 100%;
     height: auto;
@@ -64,8 +64,9 @@ strong {
 
 .nav-icons {
     display: flex;
-    margin-right: auto;
+    margin-right: 14%;
     font-size: 125%;
+    gap: 40%;
 }
 
 .nav-item {
@@ -74,7 +75,6 @@ strong {
     position: relative;
     display: inline-block;
     padding-bottom: 1.5%;
-    margin-right: 30px;
 }
 
 .nav-item::after {
