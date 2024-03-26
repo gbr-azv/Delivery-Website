@@ -1,0 +1,344 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Inter:wght@100..900&family=Mukta:wght@200;300;400;500;600;700;800&family=Rambla:ital,wght@0,400;0,700;1,400;1,700&family=Voces&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Mukta:wght@200;300;400;500;600;700;800&family=Rambla:ital,wght@0,400;0,700;1,400;1,700&family=Voces&display=swap&family=Exo:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+  background-color: #EEEEEE;
+  color: #ffffff;
+  box-sizing: border-box;
+}
+
+strong {
+  color: #E72929;
+}
+
+/*? HOMEPAGE STYLESHEET */
+
+.topnavbar {
+  display: flex;
+  padding-left: 10%;
+  padding-right: 10%;
+  align-items: center;
+  background-color: #EEEEEE;
+  gap: 5%;
+}
+
+.navbar-logo {
+  display: flex;
+  justify-content: center;
+  width: 10%;
+  height: auto;
+}
+
+.nav-links {
+  display: flex;
+  margin-right: auto;
+  gap: 15%;
+}
+
+.nav-link {
+  color: #000000;
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 0.5%;
+  font-family: "Mukta", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 125%;
+}
+
+.nav-link::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 11%;
+  background-color: #FB6D48;
+  position: absolute;
+  bottom: -25%;
+  left: 0;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+.nav-icons {
+  display: flex;
+  font-size: 125%;
+  gap: 40%;
+}
+
+.nav-item {
+  color: #000000;
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 1.5%;
+}
+
+.nav-item::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 9%;
+  background-color: #FB6D48;
+  position: absolute;
+  bottom: -15%;
+  left: 0;
+  transition: width 0.3s ease;
+}
+
+.nav-item:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+.main-container {
+  height: 630px;
+  padding: 5% 10%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.main-container__links {
+  display: flex;
+  justify-content: space-between;
+}
+
+.main-container__links__buttons {
+  background-color: #ffffff;
+  color: #E72929;
+  width: 280px;
+  text-align: center;
+  border-radius: 16px;
+  font-size: 125%;
+  font-family: "Rambla", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  padding: 3%;
+}
+
+.main-container__section {
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.main-container__section__title {
+  font-size: 225%;
+  font-family: "Voces", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.main-container__section__title_p {
+  font-size: 150%;
+  font-family: "Rambla", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.footer-container {
+  text-align: center;
+  padding: 2%;
+  color: #FB6D48;
+  font-size: 120%;
+  font-family: "Rambla", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/*? MENU STYLESHEET */
+
+.menu-header {
+  background: #f9f9f9;
+  padding: 10px 20px;
+  margin: 40px 700px 0px 700px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  border-radius: 10px;
+  border-bottom: 1px solid #ddd;
+  font-family: "Mukta", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 125%;
+  color: #FB6D48;
+}
+
+.menu-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  font-family: "Mukta", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 125%;
+  padding: 2%;
+}
+
+.menu-item {
+  flex: 0 1 calc(50% - 20px);
+  margin: 10px;
+}
+
+.item-card {
+  background: white;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+}
+
+.bestseller-tag {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: #ff4500;
+  color: white;
+  padding: 5px 10px;
+  font-size: 14px;
+  border-radius: 3px;
+  font-weight: bold;
+}
+
+.item-image {
+  width: 120px;
+  height: 90px;
+  background-size: cover;
+  background-position: center;
+  margin-right: 15px;
+  border-radius: 4px;
+}
+
+.item-info {
+  flex-grow: 1;
+}
+
+.item-title {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.item-description {
+  font-size: 14px;
+  color: #666;
+}
+
+.item-price {
+  font-size: 18px;
+  font-family: "Exo", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 800;
+  font-style: normal;
+  color: #333;
+  margin-right: 15px;
+}
+
+.order-btn {
+  background-color: #ffa500;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  margin-right: 30px;
+  border-radius: 10px;
+  cursor: pointer;
+  white-space: nowrap;
+  font-family: "Exo", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 80%;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 500,
+  'GRAD' 0,
+  'opsz' 24
+}
+
+/*? CATEGORIES STYLESHEET */
+
+.menu-containerr {
+  margin: 30px 10px 30px 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px; /* Adjust based on your layout */
+}
+
+.menu-item.category-card {
+  flex: 0 1 calc(50% - 20px);
+  height: 300px; /* If you want the height to adjust based on content */ /* Set a fixed height or adjust as needed */
+  position: relative; /* Required for absolute positioning of children */ /* Adjust as needed */
+  border-radius: 15px; /* Your current cards seem to have rounded corners */
+  overflow: hidden; /* Ensures the content respects border-radius */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow to match your menu items */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;/* Smooth transition for hover effect */
+}
+
+.menu-item.category-card:hover {
+  transform: translateY(-10px); /* Hover effect */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Hover effect */
+}
+
+.menu-item.category-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.7; /* Adjust for desired transparency */
+  z-index: 1;
+}
+
+.item-image.category-image {
+  width: 100%; /* Make image full width */
+  height: 100%; /* Make image full height */
+  position: absolute; /* Position absolutely within the parent */
+  top: 0;
+  left: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.7; /* Make image a bit transparent */
+}
+
+.category-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2; /* Ensure the title is above the background image */
+  color: white;
+  font-size: 1.5em; /* Adjust size as needed */
+  text-align: center;
+  font-family: "Exo 2", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.category-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5); /* Adjust the transparency as needed */
+  z-index: 1; /* Below the text */
+}
