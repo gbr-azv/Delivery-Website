@@ -1,15 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Inter:wght@100..900&family=Mukta:wght@200;300;400;500;600;700;800&family=Rambla:ital,wght@0,400;0,700;1,400;1,700&family=Voces&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Mukta:wght@200;300;400;500;600;700;800&family=Rambla:ital,wght@0,400;0,700;1,400;1,700&family=Voces&display=swap&family=Exo:ital,wght@0,100..900;1,100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Inter:wght@100..900&family=Mukta:wght@200;300;400;500;600;700;800&family=Rambla:ital,wght@0,400;0,700;1,400;1,700&family=Voces&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Mukta:wght@200;300;400;500;600;700;800&family=Rambla:ital,wght@0,400;0,700;1,400;1,700&family=Voces&display=swap&family=Exo:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap");
+
+:root {
+  --theme-color: #fb6d48;
+}
 
 body {
-  background-color: #EEEEEE;
+  background-color: #eeeeee;
   color: #ffffff;
   box-sizing: border-box;
 }
 
 strong {
-  color: #E72929;
+  color: var(--theme-color);
 }
 
 /*? HOMEPAGE STYLESHEET */
@@ -19,7 +23,7 @@ strong {
   padding-left: 10%;
   padding-right: 10%;
   align-items: center;
-  background-color: #EEEEEE;
+  background-color: #eeeeee;
   gap: 5%;
 }
 
@@ -49,11 +53,11 @@ strong {
 }
 
 .nav-link::after {
-  content: '';
+  content: "";
   display: block;
   width: 0;
   height: 11%;
-  background-color: #FB6D48;
+  background-color: var(--theme-color);
   position: absolute;
   bottom: -25%;
   left: 0;
@@ -80,11 +84,11 @@ strong {
 }
 
 .nav-item::after {
-  content: '';
+  content: "";
   display: block;
   width: 0;
   height: 9%;
-  background-color: #FB6D48;
+  background-color: var(--theme-color);
   position: absolute;
   bottom: -15%;
   left: 0;
@@ -111,7 +115,7 @@ strong {
 
 .main-container__links__buttons {
   background-color: #ffffff;
-  color: #E72929;
+  color: var(--theme-color);
   width: 280px;
   text-align: center;
   border-radius: 16px;
@@ -146,7 +150,7 @@ strong {
 .footer-container {
   text-align: center;
   padding: 2%;
-  color: #FB6D48;
+  color: var(--theme-color);
   font-size: 120%;
   font-family: "Rambla", sans-serif;
   font-weight: 400;
@@ -168,7 +172,7 @@ strong {
   font-weight: 400;
   font-style: normal;
   font-size: 125%;
-  color: #FB6D48;
+  color: var(--theme-color);
 }
 
 .menu-container {
@@ -201,7 +205,7 @@ strong {
   position: absolute;
   top: 10px;
   left: 10px;
-  background: #ff4500;
+  background: var(--theme-color);
   color: white;
   padding: 5px 10px;
   font-size: 14px;
@@ -244,7 +248,7 @@ strong {
 }
 
 .order-btn {
-  background-color: #ffa500;
+  background-color: var(--theme-color);
   color: white;
   border: none;
   padding: 10px 20px;
@@ -261,11 +265,7 @@ strong {
 }
 
 .material-symbols-outlined {
-  font-variation-settings:
-  'FILL' 0,
-  'wght' 500,
-  'GRAD' 0,
-  'opsz' 24
+  font-variation-settings: "FILL" 0, "wght" 500, "GRAD" 0, "opsz" 24;
 }
 
 /*? CATEGORIES STYLESHEET */
@@ -275,22 +275,22 @@ strong {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 20px; /* Adjust based on your layout */
+  gap: 20px;
 }
 
 .menu-item.category-card {
   flex: 0 1 calc(50% - 20px);
-  height: 300px; /* If you want the height to adjust based on content */ /* Set a fixed height or adjust as needed */
-  position: relative; /* Required for absolute positioning of children */ /* Adjust as needed */
-  border-radius: 15px; /* Your current cards seem to have rounded corners */
-  overflow: hidden; /* Ensures the content respects border-radius */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow to match your menu items */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;/* Smooth transition for hover effect */
+  height: 300px;
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .menu-item.category-card:hover {
-  transform: translateY(-10px); /* Hover effect */
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Hover effect */
+  transform: translateY(-10px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
 }
 
 .menu-item.category-card::before {
@@ -302,19 +302,19 @@ strong {
   bottom: 0;
   background-size: cover;
   background-position: center;
-  opacity: 0.7; /* Adjust for desired transparency */
+  opacity: 0.7;
   z-index: 1;
 }
 
 .item-image.category-image {
-  width: 100%; /* Make image full width */
-  height: 100%; /* Make image full height */
-  position: absolute; /* Position absolutely within the parent */
+  width: 100%;
+  height: 100%;
+  position: absolute;
   top: 0;
   left: 0;
   background-size: cover;
   background-position: center;
-  opacity: 0.7; /* Make image a bit transparent */
+  opacity: 0.7;
 }
 
 .category-title {
@@ -322,9 +322,9 @@ strong {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 2; /* Ensure the title is above the background image */
+  z-index: 2;
   color: white;
-  font-size: 1.5em; /* Adjust size as needed */
+  font-size: 1.5em;
   text-align: center;
   font-family: "Exo 2", sans-serif;
   font-optical-sizing: auto;
@@ -333,12 +333,12 @@ strong {
 }
 
 .category-card::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  background: rgba(0, 0, 0, 0.5); /* Adjust the transparency as needed */
-  z-index: 1; /* Below the text */
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
 }
