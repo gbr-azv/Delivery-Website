@@ -1,3 +1,16 @@
+interface BotaoProps{
+  msg: string
+}
+
+function Botao(props: BotaoProps){
+  console.log(props);
+  return <button className="button">{props.msg}</button>
+}
+
 export function App() {
-  return <h1>Hello World</h1>
+  return (
+    <div>
+      <Botao msg="Click Here"/>
+    </div>
+  )
 }
