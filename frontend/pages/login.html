@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mealmover - Login</title>
+    <link rel="stylesheet" href="../styles/reset.css" />
+    <link rel="stylesheet" href="../styles/login.css" />
+    <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+</head>
+<body class="body-container">
+    <header class="header-container">
+        <nav class="nav-container">
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="./menu.html">Menu</a></li>
+                <li><a href="./categories.html">Categorias</a></li>
+                <li><a href="./about.html">Sobre</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="main-container">
+        <section class="section-container">
+            <div class="titles-justify-container">
+                <div class="form-titles-container">
+                    <img src="../assets/logo.png" alt="logo" width="300px">
+                    <div class="welcome-container">
+                        <div class="titles-container">
+                            <h1 style="font-size: 32px;">Bem-vindo(a)!</h1>
+                            <h2 style="font-size: 26px;">Ao website do melhor Delivery.</h2>
+                        </div>
+                        <p style="font-size: 20px;">Faça seu Log In para conferir as novidades, ou cadastre-se agora!</p>
+                    </div>
+                </div>
+            </div>
+            <form class="form-container">
+                <h1 style="padding-bottom: 10px;">Log In</h1>
+                <label for="email">Email</label>
+                <input type="email" name="email" style="margin-bottom: 20px;border-radius:5px;outline:none;padding:5px;" required>
+
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" style="margin-bottom: 5px;border-radius:5px;outline:none;padding:5px;" required>
+
+                <div style="margin-bottom: 20px;">
+                    <input type="checkbox" id="remember" name="remember">
+                    <label for="remember">Remember me</label>
+                </div>
+
+                <button type="submit" style="margin-bottom: 20px;border-radius:5px;padding:5px;">Sign In</button>
+                <p><a href="#forgot-password">Forgot password?</a></p>
+                <p>Don't have an account? <a href="#sign-up">Sign up</a></p>
+            </form>
+        </section>
+    </main>
+</body>
+</html>
